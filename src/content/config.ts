@@ -6,9 +6,11 @@ const en = defineCollection({
   schema: ({ image }) =>
     z.object({
       author: z.string().optional().default(SITE.author),
+      publisher: z.string().optional().default(SITE.author),
       pubDatetime: z.date().optional(),
       modDatetime: z.date().optional().nullable(),
       hijri: z.string().optional(),
+      date: z.date().optional(),
       title: z.string().optional(),
       source: z.string().optional(),
       muftis: z.string().optional(),
@@ -23,6 +25,7 @@ const en = defineCollection({
         .or(z.string())
         .optional(),
       description: z.string().optional(),
+      excerpt: z.string().optional(),
       canonicalURL: z.string().optional(),
     }),
 });
@@ -32,9 +35,11 @@ const ar = defineCollection({
   schema: ({ image }) =>
     z.object({
       author: z.string().optional().default(SITE.author),
+      publisher: z.string().optional().default(SITE.author),
       pubDatetime: z.date().optional(),
       modDatetime: z.date().optional().nullable(),
       hijri: z.string().optional(),
+      date: z.date().optional(),
       title: z.string().optional(),
       source: z.string().optional(),
       muftis: z.string().optional(),
@@ -49,6 +54,7 @@ const ar = defineCollection({
         .or(z.string())
         .optional(),
       description: z.string().optional(),
+      excerpt: z.string().optional(),
       canonicalURL: z.string().optional(),
     }),
 });
