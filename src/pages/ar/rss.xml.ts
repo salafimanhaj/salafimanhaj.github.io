@@ -4,7 +4,7 @@ import getSortedPosts from "@utils/getSortedPosts";
 import { SITE } from "@config";
 
 export async function GET() {
-  const posts = await getCollection("en");
+  const posts = await getCollection("ar");
   const sortedPosts = getSortedPosts(posts);
   return rss({
     title: SITE.title,
