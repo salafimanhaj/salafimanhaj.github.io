@@ -15,9 +15,9 @@ const en = defineCollection({
       source: z.string().optional(),
       muftis: z.string().optional(),
       featured: z.boolean().optional().default(false),
-      slug: z.string().optional(),
+      trans: z.string().optional(),
       draft: z.boolean().optional(),
-      tags: z.array(z.string()).optional().default(["others"]),
+      tags: z.array(z.string()).optional().default(["fatwas"]),
       ogImage: image()
         .refine(img => img.width >= 1200 && img.height >= 630, {
           message: "OpenGraph image must be at least 1200 X 630 pixels!",
@@ -44,9 +44,9 @@ const ar = defineCollection({
       source: z.string().optional(),
       muftis: z.string().optional(),
       featured: z.boolean().optional().default(false),
-      slug: z.string().optional(),
+      trans: z.string().optional(),
       draft: z.boolean().optional(),
-      tags: z.array(z.string()).optional().default(["others"]),
+      tags: z.array(z.string()).optional().default(["fatwas"]),
       ogImage: image()
         .refine(img => img.width >= 1200 && img.height >= 630, {
           message: "OpenGraph image must be at least 1200 X 630 pixels!",
