@@ -7,6 +7,10 @@ import Footer from "@components/Footer.astro";
 import Pagination from "@components/Pagination.astro";
 import Card from "@components/Card";
 import { SITE } from "@config";
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 export interface Props {
   currentPage: number;
@@ -17,9 +21,9 @@ export interface Props {
 const { currentPage, totalPages, paginatedPosts } = Astro.props;
 ---
 
-<Layout title={`Posts | ${SITE.title}`}>
-  <Header activeNav="posts" />
-  <Main pageTitle="Posts" pageDesc="">
+<Layout title={`Fatwas | ${SITE.title}`}>
+  <Header activeNav="fatwas" />
+  <Main pageTitle="{t('i18n.fatwas')}" pageDesc="">
     <ul>
       {
         paginatedPosts.map(({ data, slug }) => (
