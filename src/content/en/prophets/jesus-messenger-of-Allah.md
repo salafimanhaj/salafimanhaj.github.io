@@ -2,6 +2,7 @@
 author: alsalafiyyah@icloud.com - Instagram@ALSALAFIYYAH
 pubDatetime: 2024-06-12
 modDatetime: 2024-06-12
+date: 2024-06-12
 hijri: 06 Dhul-Hijjah 1445
 title: Jesus Was No More Than A Messenger Of Allah
 slug: 1621-7
