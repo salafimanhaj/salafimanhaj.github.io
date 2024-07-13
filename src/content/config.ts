@@ -54,7 +54,6 @@ const ar = defineCollection({
 });
 
 export const collections = {
-  blog: blog,
   ar: ar,
   en: en,
 };
