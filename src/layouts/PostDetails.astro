@@ -91,11 +91,14 @@ const layoutProps = {
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
-
+    <hr/>
+    <div class="my-8">
+     <p>{t('i18n.source')}: <b>{source}</b></p>
+     <p>{t('i18n.muftis')}: <b>{muftis}</b></p>
+    </div>
     <ul class="my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
-
     <div
       class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
     >
