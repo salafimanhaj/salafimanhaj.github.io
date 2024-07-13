@@ -30,6 +30,7 @@ const {
   hijri,
   date,
   source,
+  slug,
   tags,
 } = post.data;
 
@@ -37,7 +38,7 @@ const { Content } = await post.render();
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
+  ogImageUrl ?? `/fatwas/${slugifyStr(title)}.png`,
   Astro.url.origin
 ).href;
 
@@ -50,6 +51,7 @@ const layoutProps = {
   hijri,
   date,
   source,
+  slug,
   canonicalURL,
   ogImage: ogUrl,
   scrollSmooth: true,
