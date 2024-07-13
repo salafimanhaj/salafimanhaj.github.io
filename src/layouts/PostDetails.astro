@@ -31,6 +31,7 @@ const {
   date,
   source,
   tags,
+  slug,
 } = post.data;
 
 const { Content } = await post.render();
@@ -51,6 +52,7 @@ const layoutProps = {
   date,
   source,
   canonicalURL,
+  slug,
   ogImage: ogUrl,
   scrollSmooth: true,
 };
@@ -85,7 +87,7 @@ const layoutProps = {
       size="lg"
       className="my-2"
     />
-    <a href="{/ar/fatwas/${slugifyStr(slug)}">{t('i18n.lang')}</a>
+    <a href="/ar/fatwas/{slug}/">{t('i18n.lang')}</a>
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
