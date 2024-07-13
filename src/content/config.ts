@@ -15,7 +15,7 @@ const en = defineCollection({
       source: z.string().optional(),
       muftis: z.string().optional(),
       featured: z.boolean().optional().default(false),
-      mp3: z.string().optional(),
+      slug: z.string().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).optional().default(["others"]),
       ogImage: image()
@@ -44,7 +44,7 @@ const ar = defineCollection({
       source: z.string().optional(),
       muftis: z.string().optional(),
       featured: z.boolean().optional().default(false),
-      mp3: z.string().optional(),
+      slug: z.string().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).optional().default(["others"]),
       ogImage: image()
