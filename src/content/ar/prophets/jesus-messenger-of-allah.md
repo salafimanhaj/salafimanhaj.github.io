@@ -2,7 +2,8 @@
 author: alsalafiyyah@icloud.com - Instagram@ALSALAFIYYAH
 pubDatetime: 2024-06-09
 modDatetime: 2024-06-09
-hijriDate: 03 ذو الحجة 1445
+date: 2024-06-09
+hijri: 03 ذو الحجة 1445
 title: ما المسيح ابن مريم إلا رسول
 slug: 1621-7
 featured: false
@@ -11,8 +12,8 @@ reference: /posts/fatwa-1621/
 source: فتاوى اللجنة الدائمة 1621 س7
 muftis: الشيخ ابن باز ، الشيخ عبدالرزاق عفيفي ، الشيخ عبدالله بن غديان ، الشيخ عبدالله بن قعود 
 tags:
-  - الإفتاء
-  - فتاوى
+  - الأنبياء
+  - الطائفة
 description:
   لقد كفر الذين قالوا إن الله هو المسيح ابن مريم .
 ---
