@@ -2,7 +2,7 @@
 author: alsalafiyyah@icloud.com - Instagram@ALSALAFIYYAH
 pubDatetime: 2024-06-12
 modDatetime: 2024-06-12
-hijriDate: 06 Dhul-Hijjah 1445
+hijri: 06 Dhul-Hijjah 1445
 title: Jesus Was No More Than A Messenger Of Allah
 slug: 1621-7
 featured: false
@@ -10,11 +10,8 @@ draft: false
 source: Fatawa Al-Lajnah Ad-Da'imah no. 1621, Question 7
 muftis: Sh.Ibn Baz, Sh.Abdul-Razzaq Al-Afifi, Sh.Abdullah ibn Ghudayyan, Sh.Abdullah ibn Qa'ud
 tags:
-  - alifta
-  - fatwas
   - sects
-  - qadianis
-  - jesus
+  - prophets
 description:
   Surely, in disbelief are they who say that Allâh is the Messiah, son of Mary.
 ---
