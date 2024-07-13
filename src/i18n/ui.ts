@@ -5,7 +5,7 @@ export const languages = {
 export const defaultLang = 'en';
 export const ui = {
   en: {
-    'i18n.title': 'Ialamic Fatwas',
+    'i18n.title': 'Salafi Manhaj',
     'i18n.home': 'Home',
     'i18n.fatwas': 'Fatwas',
     'i18n.audios': 'Audios',
@@ -26,9 +26,14 @@ export const ui = {
     'i18n.pageNotfound': 'Page not found',  
     'i18n.rssURL': '/rss',
     'i18n.gobackhome': 'Go back home',
+    'i18n.homeURL': '/',
+    'i18n.fatwasURL': '/fatwas/',
+    'i18n.searchURL': '/search/',
+    'i18n.tagsURL': '/tags/',
+    'i18n.rssURL': '/rss',
   },
   ar: {
-    'i18n.title': 'فتاوى إسلامية',
+    'i18n.title': 'المنهج السلفي',
     'i18n.home': 'الرئيسية',
     'i18n.fatwas': 'الفتاوى',
     'i18n.audios': 'صوتيات',
@@ -47,7 +52,11 @@ export const ui = {
     'i18n.articles': 'مقالات',
     'i18n.audiowarning': 'لا يدعم متصفحك عنصر الصوت',
     'i18n.pageNotfound': 'الصفحة غير موجودة',  
-    'i18n.rssURL': '/ar/rss',
     'i18n.gobackhome': 'الانتقال للصفحة الرئيسية',
+    'i18n.homeURL': '/ar/',
+    'i18n.fatwasURL': '/ar/fatwas/',
+    'i18n.searchURL': '/ar/search/',
+    'i18n.tagsURL': '/ar/tags/',
+    'i18n.rssURL': '/ar/rss',
   },
 } as const;
