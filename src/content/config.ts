@@ -5,15 +5,15 @@ const en = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
-      author: z.string().default(SITE.author),
+      author: z.string().optional().default(SITE.author),
       pubDatetime: z.date().optional(),
       modDatetime: z.date().optional().nullable(),
-      hijriDate: z.string().optional(),
+      hijri: z.string().optional(),
       title: z.string().optional(),
       source: z.string().optional(),
       muftis: z.string().optional(),
       featured: z.boolean().optional().default(false),
-      audio: z.string().optional(),
+      mp3: z.string().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).optional().default(["others"]),
       ogImage: image()
@@ -31,15 +31,15 @@ const ar = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
-      author: z.string().default(SITE.author),
+      author: z.string().optional().default(SITE.author),
       pubDatetime: z.date().optional(),
       modDatetime: z.date().optional().nullable(),
-      hijriDate: z.string().optional(),
+      hijri: z.string().optional(),
       title: z.string().optional(),
       source: z.string().optional(),
       muftis: z.string().optional(),
       featured: z.boolean().optional().default(false),
-      audio: z.string().optional(),
+      mp3: z.string().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).optional().default(["others"]),
       ogImage: image()
