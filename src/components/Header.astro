@@ -18,7 +18,7 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="{t('i18n.homeURL')}" class="logo whitespace-nowrap">
+      <a href="/}" class="logo whitespace-nowrap">
         {t('i18n.title')}
       </a>
       <nav id="nav-menu">
@@ -49,17 +49,17 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="{t('i18n.fatwasURL')}" class={activeNav === "fatwas" ? "active" : ""}>
+            <a href="/fatwas/" class={activeNav === "fatwas" ? "active" : ""}>
               {t('i18n.fatwas')}
             </a>
           </li>
           <li>
-            <a href="{t('i18n.tagsURL')}" class={activeNav === "tags" ? "active" : ""}>
+            <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
               {t('i18n.categories')}
             </a>
           </li>
           <li>
-            <a href="{t('i18n.langURL')}">
+            <a href="/ar/">
               {t('i18n.lang')}
             </a>
           </li>
