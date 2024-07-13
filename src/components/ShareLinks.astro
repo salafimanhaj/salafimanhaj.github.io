@@ -1,9 +1,11 @@
 ---
 import LinkButton from "./LinkButton.astro";
 import socialIcons from "@assets/socialIcons";
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const URL = Astro.url;
-
 const shareLinks = [
   {
     name: "WhatsApp",
@@ -39,7 +41,7 @@ const shareLinks = [
 ---
 
 <div class={`social-icons`}>
-  <span class="italic">Share this post on:</span>
+  <span class="italic">{t('i18n.shareon')}</span>
   <div class="text-center">
     {
       shareLinks.map(social => (
