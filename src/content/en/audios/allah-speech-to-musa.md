@@ -6,6 +6,7 @@ date: 2020-11-10
 hijri: 24 Rabiul-Awal 1442
 title: Allah's Speech to Moses
 slug: audio-63614
+trans: audio-63614
 featured: false
 draft: false
 source: Fatawa Nur Ala Al-Darb, tape no. 636
