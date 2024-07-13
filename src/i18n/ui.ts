@@ -1,3 +1,7 @@
+export const languages = {
+  en: 'English',
+  ar: 'Arabic',
+};
 export const ui = {
   en: {
     'nav.title': 'Ialamic Fatwas',
