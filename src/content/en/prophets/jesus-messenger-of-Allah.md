@@ -6,6 +6,7 @@ date: 2024-06-12
 hijri: 06 Dhul-Hijjah 1445
 title: Jesus Was No More Than A Messenger Of Allah
 slug: 1621-7
+trans: 1621-7
 featured: false
 draft: false
 source: Fatawa Al-Lajnah Ad-Da'imah no. 1621, Question 7
