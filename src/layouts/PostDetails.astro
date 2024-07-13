@@ -28,6 +28,7 @@ const {
   pubDatetime,
   modDatetime,
   hijri,
+  date,
   source,
   tags,
 } = post.data;
@@ -47,6 +48,7 @@ const layoutProps = {
   pubDatetime,
   modDatetime,
   hijri,
+  date,
   source,
   canonicalURL,
   ogImage: ogUrl,
@@ -78,10 +80,12 @@ const layoutProps = {
     <Datetime
       pubDatetime={pubDatetime}
       modDatetime={modDatetime}
+      date={date}
       hijri={hijri}
       size="lg"
       className="my-2"
     />
+    <a href="{`/ar/fatwas/${slug}/`}">{t('i18n.lang')}</a>
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
