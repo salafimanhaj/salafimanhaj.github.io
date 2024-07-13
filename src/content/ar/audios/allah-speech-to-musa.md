@@ -5,7 +5,7 @@ modDatetime: 2020-11-10
 date: 2020-11-10
 hijri: 24 ربيع الأول 1442
 title: كم مرة كلم الله موسى عليه السلام؟
-slug: 63614
+slug: audio-63614
 featured: false
 draft: false
 source: نور على الدرب 636
