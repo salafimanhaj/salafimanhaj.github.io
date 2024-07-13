@@ -2,6 +2,9 @@
 import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
+import { getLangFromUrl } from '@i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
 
 export interface Props {
   activeNav?: "fatwas" | "tags" | "search";
@@ -24,7 +27,7 @@ const { activeNav } = Astro.props;
               height={LOGO_IMAGE.height}
             />
           ) : (
-            SITE.title
+            {t('i18n.title')}
           )
         }
       </a>
@@ -57,7 +60,7 @@ const { activeNav } = Astro.props;
         <ul id="menu-items" class="display-none sm:flex">
           <li>
             <a href="/fatwas/" class={activeNav === "fatwas" ? "active" : ""}>
-              Fatwas
+              {t('i18n.fatwas')}
             </a>
           </li>
           <li>
@@ -67,7 +70,7 @@ const { activeNav } = Astro.props;
           </li>
           <li>
             <a href="/ar/">
-              Arabic
+              {t('i18n.lang')}
             </a>
           </li>
           <li>
