@@ -31,6 +31,12 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
   {
+    name: "RSS",
+    href: "/rss.xml",
+    linkTitle: ` ${SITE.title}`,
+    active: true,
+  },
+  {
     name: "Facebook",
     href: "",
     linkTitle: `${SITE.title} on Facebook`,
@@ -38,9 +44,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Instagram",
-    href: "",
+    href: "https://instagram.com/alsalafiyyah",
     linkTitle: `${SITE.title} on Instagram`,
-    active: false,
+    active: true,
   },
   {
     name: "LinkedIn",
