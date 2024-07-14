@@ -3,6 +3,8 @@ import { LOCALE } from "@config";
 interface DatetimesProps {
   pubDatetime: string | Date;
   modDatetime: string | Date | undefined | null;
+  date: string | Date;
+  hijri: string | Date | undefined | null;
 }
 
 interface Props extends DatetimesProps {
@@ -13,6 +15,8 @@ interface Props extends DatetimesProps {
 export default function Datetime({
   pubDatetime,
   modDatetime,
+  date,
+  hijri,
   size = "sm",
   className,
 }: Props) {
@@ -39,13 +43,15 @@ export default function Datetime({
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
+          date={date}
+          hijri={hijri}
         />
       </span>
     </div>
   );
 }
 
-const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
+const FormattedDatetime = ({ pubDatetime, modDatetime, date, hijri }: DatetimesProps) => {
   const myDatetime = new Date(
     modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
   );
@@ -66,7 +72,7 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
       <time dateTime={myDatetime.toISOString()}>{date}</time>
       <span aria-hidden="true"> | </span>
       <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{time}</span>
+      <span className="text-nowrap">{hijri}</span>
     </>
   );
 };
