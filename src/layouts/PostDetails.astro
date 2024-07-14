@@ -12,7 +12,6 @@ import { getLangFromUrl, useTranslations } from '@i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const {pathName} = Astro.url;
 
 export interface Props {
   post: CollectionEntry<"en">;
@@ -90,7 +89,7 @@ const layoutProps = {
       size="lg"
       className="my-2"
     />
-    <a href="{`https://salafimanhaj.github.io/ar${Astro.url.pathname}`}">{t('i18n.lang')}</a>
+    <a href="/ar/fatwas/${post.slug}">{t('i18n.lang')}</a>
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
