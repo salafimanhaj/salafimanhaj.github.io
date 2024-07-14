@@ -28,8 +28,11 @@ const {
   pubDatetime,
   modDatetime,
   hijri,
+  date,
   source,
   tags,
+  trans,
+  muftis,
 } = post.data;
 
 const { Content } = await post.render();
@@ -47,8 +50,11 @@ const layoutProps = {
   pubDatetime,
   modDatetime,
   hijri,
+  date,
   source,
   canonicalURL,
+  trans,
+  muftis,
   ogImage: ogUrl,
   scrollSmooth: true,
 };
@@ -78,13 +84,19 @@ const layoutProps = {
     <Datetime
       pubDatetime={pubDatetime}
       modDatetime={modDatetime}
+      date={date}
+      hijri={hijri}
       size="lg"
       className="my-2"
     />
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
-
+    <hr/>
+    <div class="my-8">
+     <p>{t('i18n.source')}: <b>{source}</b></p>
+     <p>{t('i18n.muftis')}: <b>{muftis}</b></p>
+    </div>
     <ul class="my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
