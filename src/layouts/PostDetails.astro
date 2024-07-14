@@ -12,7 +12,6 @@ import { getLangFromUrl, useTranslations } from '@i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const { slug } = Astro.params;
 
 export interface Props {
   post: CollectionEntry<"en">;
@@ -34,7 +33,6 @@ const {
   tags,
   trans,
   muftis,
-  slug,
 } = post.data;
 
 const { Content } = await post.render();
@@ -57,7 +55,6 @@ const layoutProps = {
   canonicalURL,
   trans,
   muftis,
-  slug,
   ogImage: ogUrl,
   scrollSmooth: true,
 };
@@ -92,7 +89,7 @@ const layoutProps = {
       size="lg"
       className="my-2"
     />
-    <a href="/ar/fatwas/${post.trans}/">{t('i18n.lang')}</a>
+    <a href="/ar/fatwas/${trans}">{t('i18n.lang')}</a>
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
