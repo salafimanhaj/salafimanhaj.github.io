@@ -6,6 +6,7 @@ date: 2024-06-09
 hijri: 03 ذو الحجة 1445
 title: ما المسيح ابن مريم إلا رسول
 slug: 1621-7
+trans: 1621-7
 featured: false
 draft: false
 reference: /posts/fatwa-1621/
