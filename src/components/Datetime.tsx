@@ -3,7 +3,6 @@ import { LOCALE } from "@config";
 interface DatetimesProps {
   pubDatetime: string | Date;
   modDatetime: string | Date | undefined | null;
-  hijri: string | Date | undefined | null;
 }
 
 interface Props extends DatetimesProps {
@@ -31,24 +30,24 @@ export default function Datetime({
         <path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path>
       </svg>
       {modDatetime && modDatetime > pubDatetime ? (
-        <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
-          Updated:
-        </span>
+        <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}></span>
       ) : (
-        <span className="sr-only">Published:</span>
+        <span className="sr-only"></span>
       )}
       <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
-          hijri={hijri}
         />
       </span>
+      <span aria-hidden="true"> | </span>
+      <span className="sr-only">&nbsp;at&nbsp;</span>
+      <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>{hijri}</span>
     </div>
   );
 }
 
-const FormattedDatetime = ({ pubDatetime, modDatetime, date, hijri }: DatetimesProps) => {
+const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
   const myDatetime = new Date(
     modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
   );
@@ -67,9 +66,6 @@ const FormattedDatetime = ({ pubDatetime, modDatetime, date, hijri }: DatetimesP
   return (
     <>
       <time dateTime={myDatetime.toISOString()}>{date}</time>
-      <span aria-hidden="true"> | </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{hijri}</span>
     </>
   );
 };
