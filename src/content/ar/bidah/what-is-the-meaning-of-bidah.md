@@ -6,7 +6,7 @@ hijri: 21 رمضان 1442
 title: تعريف البدعة
 slug: what-is-the-meaning-of-bidah
 trans: what-is-the-meaning-of-bidah
-featured: true
+featured: false
 draft: false
 source: فتاوى اللجنة الدائمة السؤال الأول من الفتوى رقم 17522
 muftis: الشيخ بن باز ، الشيخ عبد العزيز آل الشيخ ، الشيخ صالح الفوزان ، الشيخ بكر أبو زيد
