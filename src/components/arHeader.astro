@@ -21,6 +21,7 @@ const { activeNav } = Astro.props;
       <a href="/ar/" class="logo whitespace-nowrap">
         {t('i18n.title')}
       </a>
+
       <nav id="nav-menu">
         <button
           class="hamburger-menu focus-outline"
@@ -53,16 +54,17 @@ const { activeNav } = Astro.props;
             </a>
           </li>
           <li>
+            <a href="/ar/tags/  صوتيات/" class={activeNav === "tags" ? "active" : ""}>
+              {t('i18n.audios')}
+            </a>
+          </li>
+          <li>
             <a href="/ar/tags/" class={activeNav === "tags" ? "active" : ""}>
               {t('i18n.categories')}
             </a>
           </li>
-          <li>
-            <a href="/">
-              {t('i18n.lang')}
-            </a>
-          </li>
-          <li>
+        </ul>
+      </nav>
             <LinkButton
               href="/ar/search/"
               className={`focus-outline p-3 sm:p-1 ${
@@ -80,9 +82,9 @@ const { activeNav } = Astro.props;
               </svg>
               <span class="sr-only">Search</span>
             </LinkButton>
-          </li>
-        </ul>
-      </nav>
+<a href="/">
+              {t('i18n.lang')}
+            </a>
     </div>
   </div>
   <Hr />
