@@ -2,11 +2,10 @@
 author: alsalafiyyah@icloud.com - Instagram@ALSALAFIYYAH
 pubDatetime: 2020-11-10
 modDatetime: 2020-11-10
-date: 2020-11-10
 hijri: 24 Rabiul-Awal 1442
 title: Allah's Speech to Moses
-slug: audio-63614
-trans: audio-63614
+slug: allah-speech-to-musa
+trans: allah-speech-to-musa
 featured: false
 draft: false
 source: Fatawa Nur Ala Al-Darb, tape no. 636
