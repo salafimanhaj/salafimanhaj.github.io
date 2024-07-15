@@ -14,6 +14,7 @@ mp3: https://files.zadapps.info/binbaz.org.sa/fatawa/nour_3la_aldarb/nour_512/51
 muftis: الشيخ الإمام ابن باز رحمه الله
 tags:
   - صوتيات
+  - البدعة
 description:
   البدعة ما أحدثه الناس في الشرع يخالف الشرع
 ---
