@@ -2,14 +2,12 @@
 author: alsalafiyyah@icloud.com - Instagram@ALSALAFIYYAH
 pubDatetime: 2024-06-09
 modDatetime: 2024-06-09
-date: 2024-06-09
 hijri: 03 ذو الحجة 1445
 title: ما المسيح ابن مريم إلا رسول
-slug: 1621-7
-trans: 1621-7
+slug: jesus-messenger-of-allah
+trans: jesus-messenger-of-allah
 featured: false
 draft: false
-reference: /posts/fatwa-1621/
 source: فتاوى اللجنة الدائمة 1621 س7
 muftis: الشيخ ابن باز ، الشيخ عبدالرزاق عفيفي ، الشيخ عبدالله بن غديان ، الشيخ عبدالله بن قعود 
 tags:
