@@ -21,14 +21,7 @@ const { activeNav } = Astro.props;
       <a href="/" class="logo whitespace-nowrap">
         {t('i18n.title')}
       </a>
-       <ul>
-          <li>
-            <a href="/ar/">
-              {t('i18n.lang')}
-            </a>
-          </li>
-       </ul>
-          
+
             <LinkButton
               href="/search/"
               className={`focus-outline p-3 sm:p-1 ${
@@ -56,6 +49,11 @@ const { activeNav } = Astro.props;
           <li>
             <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
               {t('i18n.categories')}
+            </a>
+          </li>
+          <li>
+            <a href="/ar/">
+              {t('i18n.lang')}
             </a>
           </li>
         </ul>
