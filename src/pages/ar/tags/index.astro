@@ -13,9 +13,9 @@ const posts = await getCollection("ar");
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`التصنيفات | ${SITE.title}`}>
+<Layout title={`علامات التصنيف | ${SITE.title}`}>
   <Header activeNav="tags" />
-  <Main pageTitle="التصنيفات" pageDesc="">
+  <Main pageTitle="علامات التصنيف" pageDesc="">
     <ul>
       {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
     </ul>
