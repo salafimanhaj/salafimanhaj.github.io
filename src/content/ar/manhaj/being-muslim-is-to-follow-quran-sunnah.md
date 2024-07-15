@@ -6,7 +6,7 @@ hijri: 04 ذو الحجة 1441
 title: الواجب على المسلم أن يتبع ما جاء في الكتاب والسنة
 slug: being-muslim-is-to-follow-quran-sunnah
 trans: being-muslim-is-to-follow-quran-sunnah
-featured: true
+featured: false
 draft: false
 source: فتاوى اللجنة الدائمة السؤال الأول من الفتوى رقم 4161
 muftis: الشيخ بن باز ، الشيخ عبدالرزاق عفيفي ، الشيخ عبدالله بن غديان ، الشيخ عبدالله بن قعود
