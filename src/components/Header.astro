@@ -58,11 +58,6 @@ const { activeNav } = Astro.props;
             </a>
           </li>
           <li>
-            <a href="/ar/">
-              {t('i18n.lang')}
-            </a>
-          </li>
-          <li>
             <LinkButton
               href="/search/"
               className={`focus-outline p-3 sm:p-1 ${
@@ -83,6 +78,11 @@ const { activeNav } = Astro.props;
           </li>
         </ul>
       </nav>
+          <li>
+            <a href="/ar/">
+              {t('i18n.lang')}
+            </a>
+          </li>
     </div>
   </div>
   <Hr />
