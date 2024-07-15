@@ -57,6 +57,14 @@ const { activeNav } = Astro.props;
               {t('i18n.categories')}
             </a>
           </li>
+        </ul>
+      </nav>
+       <ul>
+          <li>
+            <a href="/ar/">
+              {t('i18n.lang')}
+            </a>
+          </li>
           <li>
             <LinkButton
               href="/search/"
@@ -75,14 +83,6 @@ const { activeNav } = Astro.props;
               </svg>
               <span class="sr-only">Search</span>
             </LinkButton>
-          </li>
-        </ul>
-      </nav>
-       <ul>
-          <li>
-            <a href="/ar/">
-              {t('i18n.lang')}
-            </a>
           </li>
        </ul>
     </div>
