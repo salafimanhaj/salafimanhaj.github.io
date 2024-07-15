@@ -18,6 +18,23 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
+      <a href="/" class="logo whitespace-nowrap">
+        {t('i18n.title')}
+      </a>
+
+        <ul>
+          <li>
+            <a href="/fatwas/" class={activeNav === "fatwas" ? "active" : ""}>
+              {t('i18n.fatwas')}
+            </a>
+          </li>
+          <li>
+            <a href="/ar/">
+              {t('i18n.lang')}
+            </a>
+          </li>
+        </ul>
+
             <LinkButton
               href="/search/"
               className={`focus-outline p-3 sm:p-1 ${
@@ -35,25 +52,6 @@ const { activeNav } = Astro.props;
               </svg>
               <span class="sr-only">Search</span>
             </LinkButton>
-
-
-      <a href="/" class="logo whitespace-nowrap">
-        {t('i18n.title')}
-      </a>
-
-        <ul class="sm:flex">
-          <li>
-            <a href="/fatwas/" class={activeNav === "fatwas" ? "active" : ""}>
-              {t('i18n.fatwas')}
-            </a>
-          </li>
-          <li>
-            <a href="/ar/">
-              {t('i18n.lang')}
-            </a>
-          </li>
-        </ul>
-
     </div>
   </div>
   <Hr />
