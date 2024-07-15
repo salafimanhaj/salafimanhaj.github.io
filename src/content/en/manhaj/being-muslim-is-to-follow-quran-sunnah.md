@@ -6,7 +6,7 @@ hijri: 04 Dhul-Hijjah 1441
 title: The Duty Of A Muslim Is To Follow The Teachings Of The Qur'an And Sunnah
 slug: being-muslim-is-to-follow-quran-sunnah
 trans: being-muslim-is-to-follow-quran-sunnah
-featured: true
+featured: false
 draft: false
 source: Fatawa Al-Lajnah Ad-Daimah, Fatwa no. 4161, Question 1
 muftis: Sh.Ibn Baz, Sh.Abdul-Razzaq Afifi, Sh.Abdullah ibn Ghudayyan, Sh.Abdullah ibn Qa'ud
