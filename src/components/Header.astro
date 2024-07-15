@@ -46,8 +46,8 @@ const { activeNav } = Astro.props;
               </svg>
               <span class="sr-only">Search</span>
             </LinkButton>
-    </div>
-        <ul>
+
+        <ul class="sm:flex">
           <li>
             <a href="/fatwas/" class={activeNav === "fatwas" ? "active" : ""}>
               {t('i18n.fatwas')}
@@ -59,6 +59,8 @@ const { activeNav } = Astro.props;
             </a>
           </li>
         </ul>
+
+    </div>
   </div>
   <Hr />
 </header>
