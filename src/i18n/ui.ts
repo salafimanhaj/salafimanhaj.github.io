@@ -35,7 +35,7 @@ export const ui = {
     'i18n.fatwas': 'الفتاوى',
     'i18n.audios': 'صوتيات',
     'i18n.search': 'البحث',
-    'i18n.lang': 'English',
+    'i18n.lang': 'EN',
     'i18n.categories': 'التصنيفات',
     'i18n.view_all': 'تصفح الكل',
     'i18n.backtotop': 'العودة إلى أعلى',
