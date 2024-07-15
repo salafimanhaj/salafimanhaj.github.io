@@ -1,7 +1,7 @@
 ---
 author: Instagram @Alsalafiyyah
-pubDatetime: 2024-06-21
-modDatetime: 2024-06-21
+pubDatetime: 2024-07-12
+modDatetime: 2024-07-12
 hijri: 06 Muharram 1446
 title: Ruling on following the funeral of grave-worshippers
 slug: rule-on-following-the-funeral-of-grave-worshippers
