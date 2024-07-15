@@ -2,7 +2,10 @@
 import { LOCALE, SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export interface Props {
@@ -35,7 +38,7 @@ const socialImageURL = new URL(
 
 <!doctype html>
 <html
-  lang=`${LOCALE.lang ?? "ar"}`
+  lang="ar" 
   class={`${scrollSmooth && "scroll-smooth"}`}
 >
   <head>
@@ -46,7 +49,7 @@ const socialImageURL = new URL(
     <meta name="generator" content={Astro.generator} />
 
     <!-- General Meta Tags -->
-    <title>{title}</title>
+    <title>{t('i18n.title')}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
