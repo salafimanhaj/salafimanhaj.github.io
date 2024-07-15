@@ -12,6 +12,7 @@ source: Fatawa Al-Lajnah Ad-Da'imah, Fatwa no. 3548, Question 1
 muftis: Sh. Ibn Baz , Sh. Abdul-Razzaq Afifi , Sh. Abdullah ibn Ghudayyan
 tags:
   - sects
+  - funerals
 description:
   If such people die in the state which you describe, it is not permissible to follow their funeral procession, to pray over them.
 ---
