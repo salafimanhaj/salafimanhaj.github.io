@@ -10,7 +10,7 @@ featured: false
 draft: false
 output: html_document
 mp3: https://files.zadapps.info/binbaz.org.sa/fatawa/nour_3la_aldarb/nour_887/nour_88708.mp3
-source: 
+source: فتاوى نور على الدرب الشريط رقم 124
 muftis: الشيخ بن باز
 tags:
   - صوتيات
