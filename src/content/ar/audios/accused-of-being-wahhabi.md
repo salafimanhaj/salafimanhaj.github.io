@@ -10,8 +10,8 @@ featured: false
 draft: false
 output: html_document
 mp3: https://files.zadapps.info/binbaz.org.sa/fatawa/nour_3la_aldarb/nour_887/nour_88708.mp3
-source: فتاوى اللجنة الدائمة السؤال الثالث من الفتوى رقم ( 6477 )
-muftis: الشيخ بن باز ، الشيخ عبدالرزاق عفيفي ، الشيخ عبدالله بن غديان ، الشيخ عبدالله بن قعود
+source: 
+muftis: الشيخ بن باز
 tags:
   - صوتيات
   - منهج
