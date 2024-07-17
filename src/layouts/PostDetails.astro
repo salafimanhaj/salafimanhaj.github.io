@@ -96,7 +96,7 @@ const layoutProps = {
      <p>{t('i18n.source')}: <b>{source}</b></p>
      <p>{t('i18n.muftis')}: <b>{muftis}</b></p>
       <p>
-       <a href={`/ar/fatwas/${Astro.url.pathname}`}>{t('i18n.lang')}</a>
+       {t('i18n.translate')}: <a href={`/ar/${Astro.url.pathname}`}>{t('i18n.lang')}</a>
       </p>
     </div>
     <ul class="my-8">
