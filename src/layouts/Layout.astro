@@ -1,5 +1,5 @@
 ---
-import { LOCALE, SITE } from "@config";
+import { LOCALE, LOCALES, SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 import { getLangFromUrl } from '@i18n/utils';
@@ -37,7 +37,7 @@ const socialImageURL = new URL(
 
 <!doctype html>
 <html
-  lang=`${LOCALE.lang ?? "en"}`
+  lang={LOCALES[locale].lang || locale} dir={LOCALES[locale].dir || null} 
   class={`${scrollSmooth && "scroll-smooth"}`}
 >
   <head>
