@@ -12,6 +12,7 @@ export const SITE: Site = {
 };
 
 export const LOCALE = {
+  lang: 'en-EN',
   defaultLocale: 'en-EN',
   locales: ['en', 'ar'],
   langTag: ['en-EN'],
