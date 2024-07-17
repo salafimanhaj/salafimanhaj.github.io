@@ -12,7 +12,7 @@ import { getLangFromUrl, useTranslations } from '@i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const {trans} = Astro.url
+const {trans} = Astro.url;
 
 export interface Props {
   post: CollectionEntry<"en">;
