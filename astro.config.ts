@@ -16,13 +16,6 @@ export default defineConfig({
     react(),
     sitemap(),
   ],
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ar'],
-    routing: {
-      prefixDefaultLocale: true,
-      redirectToDefaultLocale: false,
-  },
   markdown: {
     remarkPlugins: [
       remarkToc,
