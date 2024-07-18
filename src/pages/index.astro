@@ -79,7 +79,9 @@ let tags = getUniqueTags(posts);
       </LinkButton>
     </div>
 
-   <section>
+<HR />
+
+   <section style="margin-bottom: 25px;">
     <h2>{t('i18n.tags')}</h2>
     {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
    </section>
