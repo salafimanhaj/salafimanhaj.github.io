@@ -54,7 +54,7 @@ let tags = getUniqueTags(posts);
           <h2>{t('i18n.recent_fatwas')}</h2>
           <ul>
             {recentPosts.map(
-              ({ title, slug }, index) =>
+              ({ data, title, slug }, index) =>
                 index < 4 && (            
                   <li
                     href={`/fatwas/${slug}/`}
