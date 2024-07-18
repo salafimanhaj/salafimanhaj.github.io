@@ -12,6 +12,7 @@ import { getLangFromUrl, useTranslations } from '@i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const {pathname} = Astro.url;
 
 export interface Props {
   post: CollectionEntry<"ar">;
@@ -31,7 +32,6 @@ const {
   date,
   source,
   tags,
-  trans,
   muftis,
 } = post.data;
 
@@ -53,7 +53,6 @@ const layoutProps = {
   date,
   source,
   canonicalURL,
-  trans,
   muftis,
   ogImage: ogUrl,
   scrollSmooth: true,
@@ -96,6 +95,9 @@ const layoutProps = {
     <div class="my-8">
      <p>{t('i18n.source')}: <b>{source}</b></p>
      <p>{t('i18n.muftis')}: <b>{muftis}</b></p>
+     <p>
+      <a href={`/${Astro.url.pathname}`}>{t('i18n.lang')}</a>
+     </p>
     </div>
     <ul class="my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
