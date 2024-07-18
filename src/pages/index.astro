@@ -85,10 +85,10 @@ let tags = getUniqueTags(posts);
     <h2>{t('i18n.tags')}</h2>
             {tags.map(
               ({ tag }, index) =>
-                index < 4 && (
+                index < 6 && (
                   <Tag {tag} size="lg" />
                 )
-            )} <a href="/tags/">View all tags</a>
+            )} ... <a href="/tags/">View all tags</a>
    </section>
   </main>
  <Footer />
