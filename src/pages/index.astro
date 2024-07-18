@@ -10,6 +10,8 @@ import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import Tag from "@components/Tag.astro";
+import getUniqueTags from "@utils/getUniqueTags";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -20,6 +22,7 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
+let tags = getUniqueTags(posts);
 ---
 
 <Layout>
@@ -75,8 +78,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
       </LinkButton>
     </div>
+
+   <section>
+    <h2>{t('i18n.tags')}</h2>
+    {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
+   </section>
   </main>
-  <Footer />
+ <Footer />
 </Layout>
 
 <style>
