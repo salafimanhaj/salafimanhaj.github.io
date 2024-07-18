@@ -23,9 +23,7 @@ const { currentPage, totalPages, paginatedPosts, tag, tagName } = Astro.props;
   <Header activeNav="tags" />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}
-    titleTransition={tag}
-    pageDesc={`All the articles with the tag "${tagName}".`}
-  >
+    titleTransition={tag}>
     <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
     <ul>
       {
