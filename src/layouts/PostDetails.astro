@@ -12,7 +12,7 @@ import { getLangFromUrl, useTranslations } from '@i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const {pathname} = Astro.url;
+const { slug } = Astro.params;
 
 export interface Props {
   post: CollectionEntry<"en">;
@@ -96,7 +96,7 @@ const layoutProps = {
      <p>{t('i18n.source')}: <b>{source}</b></p>
      <p>{t('i18n.muftis')}: <b>{muftis}</b></p>
       <p>
-       {t('i18n.translate')}: <a href={`/ar${Astro.url.pathname}`}>{t('i18n.lang')}</a>
+       <a href={`/ar/${Astro.params.slug}`}>{t('i18n.arabic')}</a>
       </p>
     </div>
     <ul class="my-8">
