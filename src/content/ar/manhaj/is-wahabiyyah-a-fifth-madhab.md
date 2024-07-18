@@ -7,7 +7,6 @@ title: هل الوهابية مذهب خامس أم تتبع بعض المذاه
 slug: is-wahabiyyah-a-fifth-madhab
 featured: false
 draft: false
-output: html_document
 source: مجموع فتاوى للشيخ ابن باز 1/374
 muftis:  الشيخ بن باز
 tags:
