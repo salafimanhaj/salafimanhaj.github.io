@@ -58,7 +58,8 @@ let tags = getUniqueTags(posts);
                 index < 4 && (            
                   <li
                     href={`/fatwas/${slug}/`}
-                  >{title}</li>
+                    frontmatter={data}
+                    secHeading={false}>{title}</li>
                 )
             )}
            <li>
