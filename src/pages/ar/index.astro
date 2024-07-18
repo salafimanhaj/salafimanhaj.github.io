@@ -10,6 +10,8 @@ import Socials from "@components/arSocials.astro";
 import getSortedPosts from "@utils/argetSortedPosts";
 import { SOCIALS } from "@config";
 import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import Tag from "@components/Tag.astro";
+import getUniqueTags from "@utils/getUniqueTags";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -20,6 +22,7 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
+let tags = getUniqueTags(posts);
 ---
 
 <Layout>
@@ -60,21 +63,25 @@ const socialCount = SOCIALS.filter(social => social.active).length;
                   />
                 )
             )}
+           <li>
+            <a href="/ar/fatwas/">{t('i18n.view_all')}</a>
+           </li>
           </ul>
         </section>
       )
     }
 
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/ar/fatwas/">
-        {t('i18n.view_all')}
-        <svg xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
-        </svg>
-      </LinkButton>
-    </div>
+<Hr />
+   <section style="margin-bottom: 25px;margin-top: 25px;">
+    <h2>{t('i18n.tags')}</h2>
+            {tags.map(
+              ({ tag }, index) =>
+                index < 6 && (
+                  <Tag {tag} size="lg" />
+                )
+            )} ...<a href="/ar/tags/">{t('i18n.view_all')}</a>
+   </section>
+
   </main>
   <Footer />
 </Layout>
@@ -108,6 +115,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   #recent-posts {
     @apply pb-6 pt-12;
   }
+  h2,
   #featured h2,
   #recent-posts h2 {
     @apply text-2xl font-semibold tracking-wide;
