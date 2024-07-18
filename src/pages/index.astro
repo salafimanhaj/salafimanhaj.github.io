@@ -56,10 +56,11 @@ let tags = getUniqueTags(posts);
             {recentPosts.map(
               ({ data, title, slug }, index) =>
                 index < 4 && (            
-                  <li
+                  <Card
                     href={`/fatwas/${slug}/`}
                     frontmatter={data}
-                    secHeading={false}>{title}</li>
+                    secHeading={false}
+                  />
                 )
             )}
            <li>
