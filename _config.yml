@@ -1,0 +1,50 @@
+title               : "Audio Library"
+baseurl             : "/"
+url                 : "https://alsalafiyyah.github.io"
+safe                : true
+future              : true
+paginate            : 20
+paginate_path       : "/:num/"
+include:
+  - _pages
+  - "*.liquid"
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+
+exclude:
+  - bin
+  - tmp
+  - .jekyll-cache
+  - .jekyll-metadata
+  - .sass-cache
+  - config
+  - vite.config.ts
+  - Procfile.dev
+  - Makefile
+  - .gitignore
+  - docs
+  - README.md
+  - README
+  - LICENSE
+  - CODE_OF_CONDUCT.md 
+  - vendor
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - "sample*.png" 
+
+collections:
+  _audios:
+    output: true
+
+defaults:
+  # _posts
+  - scope:
+      path: "_posts/**"
+      type: posts
+    values:
+      layout: post
+      permalink: /:title/
