@@ -4,60 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salafi Manhaj Audios Index</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        .scholar-section {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .scholar-name {
-            text-transform: capitalize;
-            color: #2980b9;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 8px;
-            margin-top: 0;
-        }
-        .audio-item {
-            margin: 15px 0;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        .audio-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .audio-title {
-            font-weight: bold;
-            font-size: 1.05em;
-            margin-bottom: 6px;
-            display: block;
-        }
-        audio {
-            width: 100%;
-        }
-    </style>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 min-p-6">
 
-    <h1>Audio Library Index</h1>
-    <div id="audio-container">Scanning repository for audios...</div>
+    <div class="max-w-3xl mx-auto px-4 py-10">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Audio Library Index</h1>
+            <p class="text-slate-500 mt-2">Automatically synced from repository assets</p>
+        </header>
+
+        <!-- Dynamic Content Container -->
+        <div id="audio-container" class="space-y-6">
+            <div class="text-center py-12 text-slate-500 animate-pulse">Scanning repository for audios...</div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Copy -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-2 rounded-lg shadow-lg text-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+        Link copied to clipboard!
+    </div>
 
     <script>
-        // CONFIGURATION: Change these to your GitHub username and repository name
         const username = "salafimanhaj";
         const repoName = "audios";
 
@@ -72,11 +41,18 @@
             return folderName.replace(/[-_]/g, ' ');
         }
 
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 2000);
+        }
+
         async function fetchAudioLibrary() {
             const container = document.getElementById('audio-container');
             
             try {
-                // 1. Fetch contents of the 'assets' folder
                 const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/assets`;
                 const response = await fetch(apiUrl);
                 
@@ -85,7 +61,6 @@
                 const scholars = await response.json();
                 const groupedAudios = {};
 
-                // 2. Loop through each scholar folder inside 'assets'
                 for (const scholarFolder of scholars) {
                     if (scholarFolder.type === "dir") {
                         const scholarName = scholarFolder.name;
@@ -94,69 +69,92 @@
 
                         groupedAudios[scholarName] = [];
 
-                        // 3. Find all .mp3 files inside the scholar's folder
                         for (const file of files) {
                             if (file.type === "file" && file.name.endsWith('.mp3')) {
                                 groupedAudios[scholarName].push({
                                     title: formatTitle(file.name),
-                                    url: file.download_url // or file.html_url / raw github link
+                                    url: file.download_url
                                 });
                             }
                         }
 
-                        // Remove empty scholar folders if they have no mp3s
                         if (groupedAudios[scholarName].length === 0) {
                             delete groupedAudios[scholarName];
                         }
                     }
                 }
 
-                // 4. Render the HTML layout dynamically
                 container.innerHTML = '';
                 
                 if (Object.keys(groupedAudios).length === 0) {
-                    container.innerHTML = '<p>No audio files found.</p>';
+                    container.innerHTML = '<div class="text-center py-12 bg-white rounded-xl shadow-sm border border-slate-200 text-slate-500">No audio files found.</div>';
                     return;
                 }
 
                 for (const [scholar, audios] of Object.entries(groupedAudios)) {
+                    // Scholar Section Wrapper
                     const section = document.createElement('div');
-                    section.className = 'scholar-section';
+                    section.className = "bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6";
 
+                    // Scholar Name Heading
                     const scholarHeading = document.createElement('h2');
-                    scholarHeading.className = 'scholar-name';
-                    scholarHeading.textContent = formatScholarName(scholar);
+                    scholarHeading.className = "text-xl font-semibold text-blue-600 capitalize pb-3 mb-4 border-b border-slate-100 flex items-center gap-2";
+                    scholarHeading.innerHTML = `<span>📚</span> ${formatScholarName(scholar)}`;
                     section.appendChild(scholarHeading);
 
-                    audios.forEach(audio => {
+                    // Audios List Wrapper
+                    const listDiv = document.createElement('div');
+                    listDiv.className = "space-y-6";
+
+                    audios.forEach((audio, index) => {
                         const itemDiv = document.createElement('div');
-                        itemDiv.className = 'audio-item';
+                        itemDiv.className = index !== audios.length - 1 ? "pb-6 border-b border-slate-100" : "";
+
+                        // Header with Title and Copy Button
+                        const topRow = document.createElement('div');
+                        topRow.className = "flex items-start justify-between gap-4 mb-3";
 
                         const titleSpan = document.createElement('span');
-                        titleSpan.className = 'audio-title';
+                        titleSpan.className = "font-medium text-slate-900 leading-snug";
                         titleSpan.textContent = audio.title;
 
+                        // Copy Button
+                        const copyBtn = document.createElement('button');
+                        copyBtn.className = "shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 transition-colors px-3 py-1.5 rounded-lg active:scale-95";
+                        copyBtn.innerHTML = `
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            Copy Link
+                        `;
+                        copyBtn.onclick = () => {
+                            navigator.clipboard.writeText(audio.url);
+                            showToast();
+                        };
+
+                        topRow.appendChild(titleSpan);
+                        topRow.appendChild(copyBtn);
+
+                        // Audio Player
                         const audioElement = document.createElement('audio');
                         audioElement.controls = true;
+                        audioElement.className = "w-full h-10 accent-blue-600";
                         audioElement.src = audio.url;
 
-                        itemDiv.appendChild(titleSpan);
+                        itemDiv.appendChild(topRow);
                         itemDiv.appendChild(audioElement);
-                        section.appendChild(itemDiv);
+                        listDiv.appendChild(itemDiv);
                     });
 
+                    section.appendChild(listDiv);
                     container.appendChild(section);
                 }
 
             } catch (error) {
                 console.error(error);
-                container.innerHTML = '<p>Error loading audio files automatically. Please check your repository name.</p>';
+                container.innerHTML = '<div class="text-center py-12 bg-white rounded-xl shadow-sm border border-slate-200 text-red-500">Error loading audio files automatically.</div>';
             }
         }
 
-        // Run on page load
         fetchAudioLibrary();
     </script>
-
 </body>
 </html>
