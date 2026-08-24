@@ -39,6 +39,7 @@ exclude:
 collections:
   _audios:
     output: true
+    permalink: /:collection/:title/
 
 defaults:
   # _posts
