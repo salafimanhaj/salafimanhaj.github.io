@@ -45,8 +45,8 @@
                         {% assign file_title = filename | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
                         
                         {% comment %} Fix: Explicitly combine site.baseurl and file.path to create /audios/assets/... {% endcomment %}
-                        {% assign file_url = file.url | relative_url %}
-
+                        {% assign file_url = site.baseurl | append: file.path %}
+                        {% assign file_full_url = site.url | append: site.baseurl | append: file.path %}
                         <div class="pb-6 border-b border-slate-100 last:border-b-0 last:pb-0">
                             <div class="flex items-start justify-between gap-4 mb-3">
                                 <span class="font-medium text-slate-900 leading-snug">{{ file_title }}</span>
