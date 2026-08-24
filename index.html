@@ -73,7 +73,7 @@
                             if (file.type === "file" && file.name.endsWith('.mp3')) {
                                 groupedAudios[scholarName].push({
                                     title: formatTitle(file.name),
-                                    url: file.download_url
+                                    url: `https://${username}.github.io/${repoName}/assets/${scholarName}/${file.name}`
                                 });
                             }
                         }
