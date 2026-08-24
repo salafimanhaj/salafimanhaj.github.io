@@ -1,6 +1,6 @@
 title               : "Salafi Manhaj"
-baseurl             : "/"
-url                 : "https://salafimanhaj.github.io/"
+baseurl             : "/audios"
+url                 : "https://salafimanhaj.github.io/audios/"
 safe                : true
 future              : true
 paginate            : 20
