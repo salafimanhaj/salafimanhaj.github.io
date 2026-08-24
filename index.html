@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salafi Manhaj Audios Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .scholar-section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .scholar-name {
+            text-transform: capitalize;
+            color: #2980b9;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        .audio-item {
+            margin: 15px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .audio-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .audio-title {
+            font-weight: bold;
+            font-size: 1.05em;
+            margin-bottom: 6px;
+            display: block;
+        }
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Audio Library Index</h1>
+    <div id="audio-container">Scanning repository for audios...</div>
+
+    <script>
+        // CONFIGURATION: Change these to your GitHub username and repository name
+        const username = "salafimanhaj";
+        const repoName = "audios";
+
+        function formatTitle(filename) {
+            return filename
+                .replace('.mp3', '')
+                .replace(/[-_]/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        function formatScholarName(folderName) {
+            return folderName.replace(/[-_]/g, ' ');
+        }
+
+        async function fetchAudioLibrary() {
+            const container = document.getElementById('audio-container');
+            
+            try {
+                // 1. Fetch contents of the 'assets' folder
+                const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/assets`;
+                const response = await fetch(apiUrl);
+                
+                if (!response.ok) throw new Error("Could not fetch repository contents.");
+                
+                const scholars = await response.json();
+                const groupedAudios = {};
+
+                // 2. Loop through each scholar folder inside 'assets'
+                for (const scholarFolder of scholars) {
+                    if (scholarFolder.type === "dir") {
+                        const scholarName = scholarFolder.name;
+                        const subResponse = await fetch(scholarFolder.url);
+                        const files = await subResponse.json();
+
+                        groupedAudios[scholarName] = [];
+
+                        // 3. Find all .mp3 files inside the scholar's folder
+                        for (const file of files) {
+                            if (file.type === "file" && file.name.endsWith('.mp3')) {
+                                groupedAudios[scholarName].push({
+                                    title: formatTitle(file.name),
+                                    url: file.download_url // or file.html_url / raw github link
+                                });
+                            }
+                        }
+
+                        // Remove empty scholar folders if they have no mp3s
+                        if (groupedAudios[scholarName].length === 0) {
+                            delete groupedAudios[scholarName];
+                        }
+                    }
+                }
+
+                // 4. Render the HTML layout dynamically
+                container.innerHTML = '';
+                
+                if (Object.keys(groupedAudios).length === 0) {
+                    container.innerHTML = '<p>No audio files found.</p>';
+                    return;
+                }
+
+                for (const [scholar, audios] of Object.entries(groupedAudios)) {
+                    const section = document.createElement('div');
+                    section.className = 'scholar-section';
+
+                    const scholarHeading = document.createElement('h2');
+                    scholarHeading.className = 'scholar-name';
+                    scholarHeading.textContent = formatScholarName(scholar);
+                    section.appendChild(scholarHeading);
+
+                    audios.forEach(audio => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'audio-item';
+
+                        const titleSpan = document.createElement('span');
+                        titleSpan.className = 'audio-title';
+                        titleSpan.textContent = audio.title;
+
+                        const audioElement = document.createElement('audio');
+                        audioElement.controls = true;
+                        audioElement.src = audio.url;
+
+                        itemDiv.appendChild(titleSpan);
+                        itemDiv.appendChild(audioElement);
+                        section.appendChild(itemDiv);
+                    });
+
+                    container.appendChild(section);
+                }
+
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = '<p>Error loading audio files automatically. Please check your repository name.</p>';
+            }
+        }
+
+        // Run on page load
+        fetchAudioLibrary();
+    </script>
+
+</body>
+</html>
