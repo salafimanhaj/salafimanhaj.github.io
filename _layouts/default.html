@@ -70,19 +70,27 @@
 
     {% for scholar in scholars %}
         {% assign scholar_name_formatted = scholar | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
-        
+        {% assign audio_count = 0 %}
+                {% for file in sorted_static_files %}
+                    {% if file.path contains '/assets/' and file.extname == '.mp3' and file.path contains scholar %}
+                        {% assign audio_count = audio_count | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6">
-            <h2 class="text-xl font-semibold text-blue-600 capitalize pb-3 mb-4 border-b border-slate-100 flex items-center gap-2">
-                <span>Shaykh</span> {{ scholar_name_formatted }}
-            </h2>
+                    <h2 class="text-xl font-semibold text-blue-600 capitalize pb-3 mb-4 border-b border-slate-100 flex items-center justify-between">
+                        <span class="flex items-center gap-2">
+                            <span>Shaykh</span> {{ scholar_name_formatted }}
+                        </span>
+                        <span class="text-xs font-medium bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full">
+                            {{ audio_count }} {% if audio_count == 1 %}audio{% else %}audios{% endif %}
+                        </span>
+                    </h2>
 
             <div class="space-y-6">
                 {% for file in sorted_static_files %}
                     {% if file.path contains '/assets/' and file.extname == '.mp3' and file.path contains scholar %}
                         {% assign filename = file.basename %}
                         {% assign file_title = filename | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
-                        
-                        {% comment %} Fix: Explicitly combine site.baseurl and file.path to create /audios/assets/... {% endcomment %}
                         {% assign file_url = site.baseurl | append: file.path %}
                         {% assign file_full_url = site.url | append: site.baseurl | append: file.path %}
                         <div class="pb-6 border-b border-slate-100 last:border-b-0 last:pb-0">
