@@ -6,6 +6,43 @@
     <title>Audios Library | {{ site.title }}</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+<!-- Dynamic JSON-LD Schema for Audio Files -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {% assign sorted_static_files = site.static_files | sort: 'path' %}
+        {% assign index = 0 %}
+        {% for file in sorted_static_files %}
+          {% if file.path contains '/assets/' and file.extname == '.mp3' %}
+            {% assign parts = file.path | split: '/' %}
+            {% assign scholar_slug = parts[2] %}
+            {% assign scholar_name = scholar_slug | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
+            {% assign filename = file.basename %}
+            {% assign file_title = filename | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
+            {% assign file_full_url = site.url | append: site.baseurl | append: file.path %}
+            {% if index > 0 %},{% endif %}
+            {
+              "@type": "ListItem",
+              "position": {{ index | plus: 1 }},
+              "item": {
+                "@type": "AudioObject",
+                "name": "{{ file_title }}",
+                "contentUrl": "{{ file_full_url }}",
+                "encodingFormat": "audio/mpeg",
+                "author": {
+                  "@type": "Person",
+                  "name": "{{ scholar_name }}"
+                }
+              }
+            }
+            {% assign index = index | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      ]
+    }
+    </script>
 </head>
 <body class="bg-slate-50 text-slate-800 min-p-6">
 
